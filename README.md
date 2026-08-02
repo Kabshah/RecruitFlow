@@ -6,11 +6,11 @@ It features a clean Next.js frontend for both the public careers site and the in
 
 ## Key Features
 
-- **Smart Resume Parsing**: Extracts structured data (skills, experience, education, previous employers) from uploaded PDFs using python document parsers and AI extraction.
-- **Strict Candidate Scoring**: Powered by `DeepSeek-V3` via Hugging Face. The engine is deliberately strict. It heavily penalizes career/domain mismatches and flags specific skill, education, and experience gaps in a detailed Skill Gap Analysis.
+- **Smart Hybrid Resume Parsing**: Extracts text from candidate PDFs and DOCX files using `pdfplumber` and `python-docx`, featuring an automated fallback to **PaddleOCR** for scanned/image-based documents. Uses **Google Gemini LLM** to convert raw text into structured candidate JSON profiles (skills, experience years, education, employment history).
+- **Two-Tier ATS Candidate Scoring Engine**: Evaluates candidates through a initial **Skill Gap Analysis** (`SkillGapAnalyzer`) followed by a strict 100-point baseline rule engine. It heavily penalizes career domain mismatches (-50 to -90 pts), missing core skills (-15 pts/skill), and experience shortages (-10 pts/year), automatically routing candidates scoring $\ge 60$ to shortlisted interview scheduling and AI question generation.
 - **Fuzzy Duplicate Detection**: Prevents candidates from spamming the same job opening by using fuzzy name and exact email/phone matching constraints.
 - **Automated Scheduling**: For candidates that pass the scoring threshold, the system automatically finds the next available Google Calendar slot, perfectly respecting a 15-minute buffer between back-to-back candidates. 
-- **Email Automation**: Triggers responsive, rich HTML emails via the Gmail API to confirm applications, send calendar invites for shortlisted candidates, and politely let down poor fits.
+- **Email Automation**: Triggers responsive emails via the Gmail API to confirm applications, send calendar invites for shortlisted candidates, and politely let down poor fits.
 - **Dynamic Interview Questions**: Automatically writes targeted technical interview questions tailored to the candidate's exact skill gaps for the interviewer to use.
 - **Premium HR Dashboard**: The internal portal has a fully redesigned UI inspired by tools like Linear and Ashby — dark navy sidebar with grouped navigation, animated active states, and a glass-style user card at the bottom. Every page uses a consistent clean design system so it actually looks and feels like a real SaaS product.
 - **Kanban Pipeline View**: Candidates move through hiring stages on a visual Kanban board. Each card shows the AI match score, skill chips, experience, and quick-action buttons so recruiters can shortlist, reject, or schedule an interview right from the board without digging through a table.
