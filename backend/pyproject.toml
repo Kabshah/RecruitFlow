@@ -1,0 +1,27 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "black>=26.5.1",
+    "fastapi>=0.139.2",
+    "google-api-python-client>=2.198.0",
+    "google-auth-httplib2>=0.4.0",
+    "google-auth-oauthlib>=1.4.0",
+    "google-genai>=1.0.0",
+    "huggingface-hub>=1.24.0",
+    "paddleocr>=2.10.0",
+    "paddlepaddle>=3.3.1",
+    "pdfplumber>=0.11.10",
+    "pydantic>=2.13.4",
+    "pytest>=9.1.1",
+    "python-docx>=1.2.0",
+    "python-dotenv>=1.2.2",
+    "python-multipart>=0.0.32",
+    "rapidfuzz>=3.14.5",
+    "ruff>=0.15.22",
+    "supabase>=2.31.0",
+    "uvicorn>=0.51.0",
+]

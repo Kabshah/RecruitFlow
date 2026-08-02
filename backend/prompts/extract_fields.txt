@@ -1,0 +1,36 @@
+Extract structural candidate information from the following resume text.
+Output MUST be a valid JSON object matching this exact schema:
+{{
+  "name": "Full Name",
+  "email": "Email Address",
+  "phone": "Phone Number",
+  "education": [
+    {{
+      "institution": "University/School",
+      "degree": "Degree/Major",
+      "year": "Graduation Year"
+    }}
+  ],
+  "skills": ["Skill 1", "Skill 2"],
+  "certifications": ["Cert 1", "Cert 2"],
+  "years_experience": 5.5,
+  "previous_employers": [
+    {{
+      "company": "Company Name",
+      "role": "Job Title",
+      "start_date": "MM/YYYY",
+      "end_date": "MM/YYYY or Present"
+    }}
+  ],
+  "location": "City, Country",
+  "linkedin_url": "URL if available"
+}}
+
+Strictly return ONLY the JSON. Do NOT include any markdown formatting like ```json, and do NOT include any conversational preamble like "Here is the response". Return only the bare JSON object.
+If a field cannot be found, output null or an empty list/string appropriately.
+For years_experience, estimate the total total professional years of experience as a number (e.g. 3.5).
+
+Resume Text:
+---
+{resume_text}
+---

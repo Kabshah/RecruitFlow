@@ -1,0 +1,25 @@
+Generate 3-5 specific, role-relevant interview questions for this candidate based on their skill gaps and profile strengths.
+Output MUST be a valid JSON object matching this schema:
+{{
+  "questions": [
+    {{
+      "question": "The actual interview question",
+      "reason": "Brief reason why this question is necessary based on the candidate's gap analysis or strengths"
+    }}
+  ]
+}}
+
+Job Description:
+---
+{job_description}
+---
+
+Candidate Profile (JSON):
+---
+{candidate_profile}
+---
+
+Skill Gap Analysis (JSON):
+---
+{gap_analysis}
+---
